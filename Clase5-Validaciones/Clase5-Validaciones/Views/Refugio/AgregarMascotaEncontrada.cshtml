@@ -1,0 +1,56 @@
+﻿@{
+    List<Clase5_Validaciones.Models.Especie> especies = (List<Clase5_Validaciones.Models.Especie>)ViewData["Especies"];
+    List<System.Drawing.Color> colores = (List<System.Drawing.Color>)ViewData["Colores"];
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        //$('select').select2();
+    });
+</script>
+<form action="/Refugio/AgregarMascotaEncontrada" method="post">
+    <div>
+        Especie:
+        <select name="Especie.Id">
+            <option value="0">Seleccione una especie</option>
+            @foreach (var e in especies)
+            {
+                <option value="@e.Id">@e.Nombre</option>
+            }
+        </select>
+    </div>
+    <div>
+        Estado: <textarea name="Estado"></textarea>
+    </div>
+    <div>
+        Peso: <input type="number" name="Peso" value="" />
+    </div>
+    <div>
+        Color:
+        <select name="Color">
+            <option value="0">Seleccione un color</option>
+            @foreach (var e in colores)
+            {
+                <option value="@e.Name">@e.Name</option>
+            }
+        </select>
+    </div>
+    <div>
+        Nombre: <input type="text" name="Nombre" value="" />
+    </div>
+    <div>
+        Datos de contacto: <textarea name="DatosDeContacto"></textarea>
+    </div>
+    <div>
+        Fotos: <input type="file" name="Foto1" value="" />
+        <input type="file" name="Foto2" value="" />
+        <input type="file" name="Foto3" value="" />
+    </div>
+
+    <input type="submit" value="Agregar" />
+
+</form>
