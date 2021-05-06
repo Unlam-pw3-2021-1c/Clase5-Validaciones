@@ -20,5 +20,10 @@ namespace Clase5_Validaciones.Models
         public string Nombre { get; set; }
         public string DatosDeContacto { get; set; }
         public List<string> Fotos { get; set; }
+
+        public Mascota()
+        {
+            Fotos = new List<string>();
+        }
     }
 }

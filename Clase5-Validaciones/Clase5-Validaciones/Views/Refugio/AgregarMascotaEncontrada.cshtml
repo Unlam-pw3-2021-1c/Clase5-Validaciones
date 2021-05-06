@@ -15,17 +15,17 @@
 </script>
 
 <partial name="/Views/Shared/_ValidationScriptsPartial.cshtml"/>
-<form action="/Refugio/AgregarMascotaEncontrada" method="post">
+<form action="/Refugio/AgregarMascotaEncontrada" method="post" enctype="multipart/form-data">
     <div>
         Especie:
-        <select asp-for="Especie">
+        <select asp-for="Especie.Id">
             <option value="">Seleccione una especie</option>
             @foreach (var e in especies)
             {
                 <option value="@e.Id">@e.Nombre</option>
             }
         </select>
-        <span asp-validation-for="Especie"></span>
+        <span asp-validation-for="Especie.Id"></span>
     </div>
     <div>
         Estado: <textarea asp-for="Estado"></textarea>
