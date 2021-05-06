@@ -1,8 +1,10 @@
 ﻿using Clase5_Validaciones.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -43,6 +45,32 @@ namespace Clase5_Validaciones.Controllers
         [HttpPost]
         public IActionResult AgregarMascotaEncontrada(Mascota mascota)
         {
+            ViewData["Especies"] = Especies;
+            ViewData["Colores"] = Colores;
+
+            if (!ModelState.IsValid)
+            {
+                return View(mascota);
+            }
+            foreach (var f in Request.Form.Files)
+            {
+                string path = Path.GetTempFileName();
+                using (var stream = System.IO.File.Create(path))
+                {
+                    f.CopyTo(stream);
+                }
+                mascota.Fotos.Add(path);
+            }
+
+            if (Mascotas.Count == 0)
+            {
+                mascota.Id = 1;
+            }
+            else
+            {
+                mascota.Id = Mascotas.Max(o => o.Id) + 1;
+            }
+
             Mascotas.Add(mascota);
             return View();
         }

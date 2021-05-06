@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Clase5_Validaciones.Models.Mascota
+@{
     List<Clase5_Validaciones.Models.Especie> especies = (List<Clase5_Validaciones.Models.Especie>)ViewData["Especies"];
     List<System.Drawing.Color> colores = (List<System.Drawing.Color>)ViewData["Colores"];
 }
@@ -12,22 +13,27 @@
         //$('select').select2();
     });
 </script>
-<form action="/Refugio/AgregarMascotaEncontrada" method="post">
+
+<partial name="/Views/Shared/_ValidationScriptsPartial.cshtml"/>
+<form action="/Refugio/AgregarMascotaEncontrada" method="post" enctype="multipart/form-data">
     <div>
         Especie:
-        <select name="Especie.Id">
-            <option value="0">Seleccione una especie</option>
+        <select asp-for="Especie.Id">
+            <option value="">Seleccione una especie</option>
             @foreach (var e in especies)
             {
                 <option value="@e.Id">@e.Nombre</option>
             }
         </select>
+        <span asp-validation-for="Especie.Id"></span>
     </div>
     <div>
-        Estado: <textarea name="Estado"></textarea>
+        Estado: <textarea asp-for="Estado"></textarea>
+        <span asp-validation-for="Estado"></span>
     </div>
     <div>
-        Peso: <input type="number" name="Peso" value="" />
+        Peso: <input type="number" asp-for="Peso" value="" />
+        <span asp-validation-for="Peso"></span>
     </div>
     <div>
         Color:
@@ -40,10 +46,12 @@
         </select>
     </div>
     <div>
-        Nombre: <input type="text" name="Nombre" value="" />
+        Nombre: <input type="text" asp-for="Nombre" value="" />
+        <span asp-validation-for="Nombre"></span>
     </div>
     <div>
         Datos de contacto: <textarea name="DatosDeContacto"></textarea>
+        <span asp-validation-for="DatosDeContacto"></span>
     </div>
     <div>
         Fotos: <input type="file" name="Foto1" value="" />
