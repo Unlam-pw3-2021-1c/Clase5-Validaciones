@@ -18,21 +18,22 @@
 <form action="/Refugio/AgregarMascotaEncontrada" method="post">
     <div>
         Especie:
-        <select name="Especie.Id">
-            <option value="0">Seleccione una especie</option>
+        <select asp-for="Especie">
+            <option value="">Seleccione una especie</option>
             @foreach (var e in especies)
             {
                 <option value="@e.Id">@e.Nombre</option>
             }
         </select>
-        <span asp-validation-for="Especie.Id"></span>
+        <span asp-validation-for="Especie"></span>
     </div>
     <div>
         Estado: <textarea asp-for="Estado"></textarea>
         <span asp-validation-for="Estado"></span>
     </div>
     <div>
-        Peso: <input type="number" name="Peso" value="" />
+        Peso: <input type="number" asp-for="Peso" value="" />
+        <span asp-validation-for="Peso"></span>
     </div>
     <div>
         Color:
