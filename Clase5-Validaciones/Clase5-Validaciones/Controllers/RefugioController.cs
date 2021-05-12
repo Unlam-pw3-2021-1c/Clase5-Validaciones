@@ -1,4 +1,5 @@
 ﻿using Clase5_Validaciones.Models;
+using Logica;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -32,7 +33,7 @@ namespace Clase5_Validaciones.Controllers
 
             if (Colores.Count == 0)
             {
-                Colores = ObtenerColores().OrderBy(o=> o.Name).ToList();
+                Colores = ColoresManager.ObtenerColores().OrderBy(o=> o.Name).ToList();
             }
         }
         public IActionResult AgregarMascotaEncontrada()
@@ -75,11 +76,6 @@ namespace Clase5_Validaciones.Controllers
             return View();
         }
 
-        private static List<Color> ObtenerColores()
-        {
-            return typeof(Color).GetProperties(BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Public)
-                       .Select(c => (Color)c.GetValue(null, null))
-                       .ToList();
-        }
+   
     }
 }

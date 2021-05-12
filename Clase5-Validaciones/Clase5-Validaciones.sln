@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clase5-Validaciones", "Clase5-Validaciones\Clase5-Validaciones.csproj", "{91CEC4A1-BE78-4409-A009-1F2C08F9B089}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clase5-Validaciones", "Clase5-Validaciones\Clase5-Validaciones.csproj", "{91CEC4A1-BE78-4409-A009-1F2C08F9B089}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{9EF7F359-F341-4BBA-9FFF-42BFAC39C970}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{91CEC4A1-BE78-4409-A009-1F2C08F9B089}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91CEC4A1-BE78-4409-A009-1F2C08F9B089}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91CEC4A1-BE78-4409-A009-1F2C08F9B089}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EF7F359-F341-4BBA-9FFF-42BFAC39C970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EF7F359-F341-4BBA-9FFF-42BFAC39C970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EF7F359-F341-4BBA-9FFF-42BFAC39C970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EF7F359-F341-4BBA-9FFF-42BFAC39C970}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

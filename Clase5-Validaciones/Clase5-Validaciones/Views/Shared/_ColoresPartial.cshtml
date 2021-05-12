@@ -1,0 +1,12 @@
+﻿@model List<System.Drawing.Color>
+
+<div>
+    Color:
+    <select name="Color">
+        <option value="0">Seleccione un color</option>
+        @foreach (var c in Model)
+        {
+            <option value="@c.Name">@c.Name</option>
+        }
+    </select>
+</div>

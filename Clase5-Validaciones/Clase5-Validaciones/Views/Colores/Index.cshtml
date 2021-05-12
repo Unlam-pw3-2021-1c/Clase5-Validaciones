@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    List<System.Drawing.Color> colores = (List<System.Drawing.Color>)ViewData["Colores"];
+}
+Elegir Color de Fondo para su experiencia en el sitio:
+<br />
+<form action="/colores/index" method="post">
+    <partial name="/Views/Shared/_ColoresPartial.cshtml" model="@colores" />
+    <input type="submit" name="name" value="Actualizar" />
+</form>

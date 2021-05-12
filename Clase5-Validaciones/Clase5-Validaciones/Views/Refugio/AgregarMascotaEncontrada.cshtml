@@ -35,16 +35,9 @@
         Peso: <input type="number" asp-for="Peso" value="" />
         <span asp-validation-for="Peso"></span>
     </div>
-    <div>
-        Color:
-        <select name="Color">
-            <option value="0">Seleccione un color</option>
-            @foreach (var e in colores)
-            {
-                <option value="@e.Name">@e.Name</option>
-            }
-        </select>
-    </div>
+
+    <partial name="/Views/Shared/_ColoresPartial.cshtml" model="@colores" />
+
     <div>
         Nombre: <input type="text" asp-for="Nombre" value="" />
         <span asp-validation-for="Nombre"></span>
