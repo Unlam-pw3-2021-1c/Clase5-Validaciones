@@ -1,16 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Http;
 @using Newtonsoft.Json;
 @{
-    string key = "colores";
-    string coloresString = Context.Session.GetString(key);
     System.Drawing.Color colorElegido;
-    if (string.IsNullOrEmpty(coloresString))
+
+    if (!Logica.SessionManager.IntentarObtenerValor<System.Drawing.Color>(Context.Session, "colores", out colorElegido))
     {
         colorElegido = Logica.ColoresManager.ObtenerColores()[new Random().Next(0, 100)];
-    }
-    else
-    {
-        colorElegido = JsonConvert.DeserializeObject<System.Drawing.Color>(coloresString);
     }
 }
 

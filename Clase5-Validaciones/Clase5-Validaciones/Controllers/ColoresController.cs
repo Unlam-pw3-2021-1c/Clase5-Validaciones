@@ -34,9 +34,8 @@ namespace Clase5_Validaciones.Controllers
         [HttpPost]
         public IActionResult Index(Color Color)
         {
-            string key = "colores";
-            string sessionValue = JsonConvert.SerializeObject(Color);
-            HttpContext.Session.SetString(key, sessionValue);
+            SessionManager.GuardarValor<Color>(HttpContext.Session, "colores", Color);
+           
             return Redirect("/Home/Index");
         }
     }
