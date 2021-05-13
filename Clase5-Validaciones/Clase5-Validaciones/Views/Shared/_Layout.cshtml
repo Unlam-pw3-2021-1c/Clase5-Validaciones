@@ -1,9 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Http;
 @using Newtonsoft.Json;
 @{
-    System.Drawing.Color colorElegido;
-
-    if (!Logica.SessionManager.IntentarObtenerValor<System.Drawing.Color>(Context.Session, "colores", out colorElegido))
+    if (!Logica.SessionManager.IntentarObtenerValor<System.Drawing.Color>(Context.Session, "colores", out System.Drawing.Color colorElegido))
     {
         colorElegido = Logica.ColoresManager.ObtenerColores()[new Random().Next(0, 100)];
     }
